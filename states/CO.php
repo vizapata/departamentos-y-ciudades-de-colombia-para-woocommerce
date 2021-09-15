@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Colombia states
  *
@@ -9,38 +10,13 @@
 
 global $states;
 
-$states ['CO' ] = array (
-	'AMZ' => 'Amazonas',
-	'ANT' => 'Antioquia',
-	'ARU' => 'Arauca',
-	'ATL' => 'Atlántico',
-	'BOG' => 'Bogotá',
-	'BOL' => 'Bolívar',
-	'BOY' => 'Boyacá',
-	'CAL' => 'Caldas',
-	'CAQ' => 'Caquetá',
-	'CAS' => 'Casanare',
-	'CAU' => 'Cauca',
-	'CES' => 'Cesar',
-	'CHO' => 'Chocó',
-	'COR' => 'Córdoba',
-	'CUN' => 'Cundinamarca',
-	'GUA' => 'Guainía',
-	'GUV' => 'Guaviare',
-	'HUI' => 'Huila',
-	'GUJ' => 'La Guajira' ,
-	'MAG' => 'Magdalena',
-	'MET' => 'Meta',
-	'NAR' => 'Nariño',
-	'NOR' => 'Norte de Santander',
-	'PUT' => 'Putumayo',
-	'QUI' => 'Quindío',
-	'RIS' => 'Risaralda',
-	'SAP' => 'San Andrés y Providencia',
-	'SAN' => 'Santander',
-	'SUC' => 'Sucre',
-	'TOL' => 'Tolima',
-	'VAC' => 'Valle del Cauca',
-	'VAU' => 'Vaupés',
-	'VIC' => 'Vichada'
-	);
+/*
+ * Be careful:
+ * This way to identify the states and cities relies on the worpdress plugin
+ * https://github.com/vizapata/departamentos-municipios-colombia
+ * At this moment there is no additional checks if the plugin is installed or activated
+ */ 
+$states['CO'] = array();
+foreach (dmcol_all_states() as $state) {
+	$states['CO'][$state['abbr']] = $state['name'];
+}
